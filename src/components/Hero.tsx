@@ -24,14 +24,19 @@ export const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-neon-orange hover:bg-neon-orange/90 text-white px-8 py-4 rounded-lg font-semibold font-inter transition-all duration-200 hover:scale-105 inline-flex items-center space-x-2 group">
+            <a
+              href="https://wa.me/6281244283690"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-neon-orange hover:bg-neon-orange/90 text-white px-8 py-4 rounded-lg font-semibold font-inter transition-all duration-200 hover:scale-105 inline-flex items-center space-x-2 group"
+            >
               <span>Let's Talk</span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </button>
+            </a>
             
-            <button className="border border-electric-cyan text-electric-cyan hover:bg-electric-cyan hover:text-dark-navy px-8 py-4 rounded-lg font-semibold font-inter transition-all duration-200 hover:scale-105">
+            <a href="#projects" className="border border-electric-cyan text-electric-cyan hover:bg-electric-cyan hover:text-dark-navy px-8 py-4 rounded-lg font-semibold font-inter transition-all duration-200 hover:scale-105">
               View Our Work
-            </button>
+            </a>
           </div>
         </div>
       </div>

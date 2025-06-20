@@ -3,6 +3,15 @@ import { Menu, X } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,11 +32,11 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="fixed w-full top-0 z-[60] px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto mt-6">
+      <header className={`fixed w-full top-0 z-[60] px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out ${isScrolled ? 'pt-3' : 'pt-6'}`}>
+        <div className={`max-w-6xl mx-auto transition-all duration-300 ease-in-out ${isScrolled ? 'max-w-5xl' : 'max-w-6xl'}`}>
           <div className="relative bg-dark-navy/80 backdrop-blur-md border border-white/10 rounded-full shadow-lg shadow-black/20">
             <div className="px-6 lg:px-8">
-              <div className="flex justify-between items-center py-4">
+              <div className={`flex justify-between items-center transition-all duration-300 ease-in-out ${isScrolled ? 'py-3' : 'py-4'}`}>
                 {/* Logo */}
                 <div className="flex items-baseline z-10">
                   <span className="text-2xl font-bold font-sora text-white tracking-tight">Crafix</span>
@@ -49,9 +58,13 @@ export const Header: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="hidden md:block">
-                  <button className="bg-neon-orange hover:bg-neon-orange/90 text-white px-6 py-2 rounded-full font-medium font-inter transition-all duration-200 hover:scale-105 shadow-lg">
+                  <a
+                    href="https://wa.me/6281244283690"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`bg-neon-orange hover:bg-neon-orange/90 text-white rounded-full font-medium font-inter transition-all duration-300 ease-in-out hover:scale-105 shadow-lg ${isScrolled ? 'px-5 py-1.5 text-sm' : 'px-6 py-2'}`}>
                     Let's Talk
-                  </button>
+                  </a>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -101,14 +114,17 @@ export const Header: React.FC = () => {
               </a>
             ))}
           </nav>
-          <button
+          <a
+            href="https://wa.me/6281244283690"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`bg-neon-orange hover:bg-neon-orange/90 text-white px-8 py-3 rounded-full font-medium font-inter transition-all duration-300 transform shadow-lg hover:scale-105 ${
               isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
             style={{ transitionDelay: '700ms' }}
           >
             Let's Talk
-          </button>
+          </a>
         </div>
       </div>
     </>
