@@ -15,9 +15,9 @@ export const Header: React.FC = () => {
           <div className="px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
               {/* Logo */}
-              <div className="flex items-center space-x-2">
-                <Code className="h-8 w-8 text-electric-cyan" />
-                <span className="text-2xl font-bold font-sora text-white">Crafix</span>
+              <div className="flex items-baseline">
+                <span className="text-2xl font-bold font-sora text-white tracking-tight">Crafix</span>
+                <div className="w-[6px] h-[6px] bg-electric-cyan ml-1"></div>
               </div>
 
               {/* Desktop Navigation */}
