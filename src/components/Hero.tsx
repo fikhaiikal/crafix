@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowDown, ArrowRight, Sparkles } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center animate-fade-in">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-6xl mx-auto relative z-10 text-center">
+        <div className="animate-fade-in">
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center space-x-2 bg-electric-cyan/10 border border-electric-cyan/20 rounded-full px-4 py-2">
               <Sparkles className="h-4 w-4 text-electric-cyan" />
@@ -36,6 +36,13 @@ export const Hero: React.FC = () => {
         </div>
       </div>
       
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+        <a href="#services" aria-label="Scroll down">
+          <ArrowDown className="h-8 w-8 text-white/50 animate-bounce hover:text-white transition-colors" />
+        </a>
+      </div>
+
       {/* Soft Gradient Glow Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Primary Electric Cyan Glow */}
